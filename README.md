@@ -1,4 +1,6 @@
 # EverQuest.Godot Launcher (EQ.gd)
+<img width="1162" height="657" alt="image" src="https://github.com/user-attachments/assets/eef39b7d-d4c4-4400-9d59-b199989bee99" />
+
 
 This repository is the **public entry point** for **EQ.gd**—the place players and contributors should land first. It contains the **desktop launcher**: a Godot 4.6 + C# app that will keep the game install updated, show release notes and news, and offer a convenient **Play** shortcut to the same client you could start manually.
 
