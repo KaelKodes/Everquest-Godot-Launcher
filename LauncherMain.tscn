@@ -1,0 +1,598 @@
+[gd_scene format=3 uid="uid://b5s3p1q4x7y2a"]
+
+[ext_resource type="Script" uid="uid://bb8gs822bje4i" path="res://LauncherMain.cs" id="1_x8d2m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+bg_color = Color(0.05, 0.05, 0.07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blog_hidden"]
+bg_color = Color(0.08, 0.08, 0.1, 0.5)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.75, 0.2, 0.3)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blog_panel"]
+bg_color = Color(0.08, 0.08, 0.1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.75, 0.2, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_discord_btn"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18, 0.65, 0.95, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bottom_bar"]
+bg_color = Color(0.1, 0.1, 0.13, 1)
+border_width_top = 2
+border_color = Color(0.2, 0.2, 0.25, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_action_btn"]
+bg_color = Color(0.18, 0.45, 0.75, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="LauncherMain" type="Control" unique_id=1830074105]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x8d2m")
+
+[node name="Background" type="Panel" parent="." unique_id=1671735233]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="Title" type="Label" parent="." unique_id=1292167894]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.95, 0.85, 0.5, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 54
+text = "EverQuest.Godot"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="." unique_id=1908622299]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 100.0
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 18
+text = "CLASSIC - GOTHIC - HORROR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlogContainer" type="Control" parent="." unique_id=233528914]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -150.0
+offset_right = 400.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftBlog" type="Panel" parent="BlogContainer" unique_id=1836187364]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blog_hidden")
+
+[node name="Title" type="Label" parent="BlogContainer/LeftBlog" unique_id=1320771855]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.2, 0.5)
+text = "Hidden"
+horizontal_alignment = 1
+
+[node name="RightBlog" type="Panel" parent="BlogContainer" unique_id=1767692458]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blog_hidden")
+
+[node name="Title" type="Label" parent="BlogContainer/RightBlog" unique_id=1023646233]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 10.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.2, 0.5)
+text = "Hidden"
+horizontal_alignment = 1
+
+[node name="CenterBlog" type="Panel" parent="BlogContainer" unique_id=536685645]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -140.0
+offset_right = 150.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blog_panel")
+
+[node name="Title" type="Label" parent="BlogContainer/CenterBlog" unique_id=658518576]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.2, 1)
+theme_override_font_sizes/font_size = 22
+text = "Alpha Launch!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Date" type="Label" parent="BlogContainer/CenterBlog" unique_id=742539167]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.4, 0.7, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Day - Month - Year"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Excerpt" type="Label" parent="BlogContainer/CenterBlog" unique_id=1957886852]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 100.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+text = "Excerpt..."
+autowrap_mode = 3
+clip_text = true
+
+[node name="CenterClickBtn" type="Button" parent="BlogContainer/CenterBlog" unique_id=614036688]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="PrevBtn" type="Button" parent="BlogContainer" unique_id=1267872943]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 210.0
+offset_top = -25.0
+offset_right = 240.0
+offset_bottom = 25.0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = "<"
+flat = true
+
+[node name="NextBtn" type="Button" parent="BlogContainer" unique_id=2017535898]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -25.0
+offset_right = -210.0
+offset_bottom = 25.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.2, 1)
+theme_override_font_sizes/font_size = 24
+text = ">"
+flat = true
+
+[node name="DiscordBtn" type="Button" parent="." unique_id=1049604516]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -190.0
+offset_right = 100.0
+offset_bottom = -150.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.18, 0.65, 0.95, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_discord_btn")
+text = "Discord"
+
+[node name="ClientUI" type="Panel" parent="." unique_id=510774841]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bottom_bar")
+
+[node name="ProgressBar" type="ProgressBar" parent="ClientUI" unique_id=834949545]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+show_percentage = false
+
+[node name="StatusLabel" type="Label" parent="ClientUI" unique_id=287043088]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 500.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 16
+text = "Idle."
+
+[node name="PathLabel" type="Label" parent="ClientUI" unique_id=1338027392]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 80.0
+text = "Install Path:"
+vertical_alignment = 1
+
+[node name="PathEdit" type="LineEdit" parent="ClientUI" unique_id=1917827031]
+layout_mode = 1
+offset_left = 130.0
+offset_top = 50.0
+offset_right = 450.0
+offset_bottom = 81.0
+
+[node name="BrowseBtn" type="Button" parent="ClientUI" unique_id=1347563130]
+layout_mode = 1
+offset_left = 460.0
+offset_top = 50.0
+offset_right = 550.0
+offset_bottom = 81.0
+text = "Browse..."
+
+[node name="ActionCombo" type="OptionButton" parent="ClientUI" unique_id=1170546971]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 90.0
+offset_right = 200.0
+offset_bottom = 121.0
+
+[node name="ActionBtn" type="Button" parent="ClientUI" unique_id=1982047938]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -45.0
+offset_right = -40.0
+offset_bottom = 45.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_action_btn")
+text = "PLAY"
+
+[node name="FullBlogDialog" type="Panel" parent="." unique_id=414343127]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blog_panel")
+
+[node name="Title" type="Label" parent="FullBlogDialog" unique_id=1755544974]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.95, 0.75, 0.2, 1)
+theme_override_font_sizes/font_size = 28
+text = "Full Article Title"
+horizontal_alignment = 1
+
+[node name="Date" type="Label" parent="FullBlogDialog" unique_id=675258779]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 65.0
+offset_bottom = 85.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.4, 0.7, 0.9, 1)
+text = "Date"
+horizontal_alignment = 1
+
+[node name="Content" type="RichTextLabel" parent="FullBlogDialog" unique_id=464392947]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 110.0
+offset_right = -40.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.85, 0.85, 0.85, 1)
+text = "Full content here..."
+
+[node name="CloseBtn" type="Button" parent="FullBlogDialog" unique_id=2117899859]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "X"
+
+[node name="PasswordDialog" type="Panel" parent="." unique_id=202052980]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -100.0
+offset_right = 175.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PasswordDialog" unique_id=1578342610]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 20.0
+offset_bottom = 50.0
+grow_horizontal = 2
+text = "Enter Admin Password"
+horizontal_alignment = 1
+
+[node name="PasswordEdit" type="LineEdit" parent="PasswordDialog" unique_id=2131726358]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -15.5
+offset_right = 100.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+secret = true
+
+[node name="SubmitBtn" type="Button" parent="PasswordDialog" unique_id=1462082076]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -50.0
+offset_right = -10.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Submit"
+
+[node name="CancelBtn" type="Button" parent="PasswordDialog" unique_id=849041155]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Cancel"
+
+[node name="ServerPanel" type="Panel" parent="." unique_id=981041952]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -220.0
+offset_right = 350.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="ServerPanel" unique_id=1834174436]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 15.0
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 22
+text = "Server Installer & Updater"
+horizontal_alignment = 1
+
+[node name="PathLabel" type="Label" parent="ServerPanel" unique_id=1382403332]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 160.0
+offset_bottom = 110.0
+text = "Server Path:"
+vertical_alignment = 1
+
+[node name="PathEdit" type="LineEdit" parent="ServerPanel" unique_id=1117306837]
+layout_mode = 1
+offset_left = 140.0
+offset_top = 80.0
+offset_right = 500.0
+offset_bottom = 111.0
+
+[node name="BrowseBtn" type="Button" parent="ServerPanel" unique_id=628583645]
+layout_mode = 1
+offset_left = 510.0
+offset_top = 80.0
+offset_right = 600.0
+offset_bottom = 111.0
+text = "Browse..."
+
+[node name="ActionCombo" type="OptionButton" parent="ServerPanel" unique_id=221872548]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 130.0
+offset_right = 240.0
+offset_bottom = 161.0
+
+[node name="ActionBtn" type="Button" parent="ServerPanel" unique_id=448477692]
+layout_mode = 1
+offset_left = 260.0
+offset_top = 130.0
+offset_right = 440.0
+offset_bottom = 161.0
+text = "EXECUTE"
+
+[node name="StatusLabel" type="Label" parent="ServerPanel" unique_id=9741086]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 190.0
+offset_right = 600.0
+offset_bottom = 220.0
+text = "Idle."
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="ServerPanel" unique_id=97012525]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -60.0
+offset_right = -40.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CloseBtn" type="Button" parent="ServerPanel" unique_id=1188464368]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "X"
+
+[node name="ClientFolderDialog" type="FileDialog" parent="." unique_id=1965014269]
+title = "Open a Directory"
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
+
+[node name="ServerFolderDialog" type="FileDialog" parent="." unique_id=2121202265]
+title = "Open a Directory"
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
