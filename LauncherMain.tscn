@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5s3p1q4x7y2a"]
 
 [ext_resource type="Script" uid="uid://bb8gs822bje4i" path="res://LauncherMain.cs" id="1_x8d2m"]
+[ext_resource type="Script" uid="uid://d8k2n5w7q1m4p" path="res://EqStyleDownloadBar.cs" id="2_eqbar"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
 bg_color = Color(0.05, 0.05, 0.07, 1)
@@ -261,6 +262,7 @@ text = ">"
 flat = true
 
 [node name="DiscordBtn" type="Button" parent="." unique_id=1049604516]
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -285,14 +287,14 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_bottom_bar")
 
-[node name="ProgressBar" type="ProgressBar" parent="ClientUI" unique_id=834949545]
+[node name="ProgressBar" type="Control" parent="ClientUI" unique_id=834949545]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = -15.0
-offset_bottom = -5.0
+offset_top = -22.0
+offset_bottom = -4.0
 grow_horizontal = 2
-show_percentage = false
+script = ExtResource("2_eqbar")
 
 [node name="StatusLabel" type="Label" parent="ClientUI" unique_id=287043088]
 layout_mode = 1
@@ -560,7 +562,7 @@ offset_bottom = 220.0
 text = "Idle."
 vertical_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="ServerPanel" unique_id=97012525]
+[node name="ProgressBar" type="Control" parent="ServerPanel" unique_id=97012525]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -572,6 +574,7 @@ offset_right = -40.0
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("2_eqbar")
 
 [node name="CloseBtn" type="Button" parent="ServerPanel" unique_id=1188464368]
 layout_mode = 1

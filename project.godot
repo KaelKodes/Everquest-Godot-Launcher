@@ -12,8 +12,8 @@ config_version=5
 
 config/name="EQ.GD Launcher"
 run/main_scene="res://LauncherMain.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+config/icon="uid://dop7a4r7ys86a"
 
 [dotnet]
 
