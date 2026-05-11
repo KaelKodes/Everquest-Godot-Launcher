@@ -35,6 +35,3 @@ Prebuilt Windows binaries will be attached to **[Releases](https://github.com/Ka
 - **Launcher:** [Everquest-Godot-Launcher issues](https://github.com/KaelKodes/Everquest-Godot-Launcher/issues)  
 - **Server, database, hosting:** [Everquest-Godot-Server issues](https://github.com/KaelKodes/Everquest-Godot-Server/issues)
 
-## License
-
-Add a `LICENSE` file when you have chosen terms for the launcher; until then, assume **all rights reserved** unless you state otherwise in the repository settings.
