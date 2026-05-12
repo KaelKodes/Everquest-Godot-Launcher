@@ -36,5 +36,5 @@ Prebuilt Windows binaries will be attached to **[Releases](https://github.com/Ka
 
 - **Launcher:** [Everquest-Godot-Launcher issues](https://github.com/KaelKodes/Everquest-Godot-Launcher/issues)  
 - **Server, database, hosting:** [Everquest-Godot-Server issues](https://github.com/KaelKodes/Everquest-Godot-Server/issues)
-- ** [Discord](https://discord.gg/dxvAvKg7FZ)**
+- ** [Discord]** (https://discord.gg/dxvAvKg7FZ)
 
