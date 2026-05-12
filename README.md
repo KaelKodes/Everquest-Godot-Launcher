@@ -26,7 +26,7 @@ Open this folder as the project root in the Godot editor. Main scene: `LauncherM
 1. **Install / Update** — Sync the game files to the chosen install directory (implementation: real `git` or packaged updates; UI exists, plumbing still to be completed).  
 2. **News** — `blogs.json` is updated **with** releases so patch notes travel with the build, not from a separate live service.  
 3. **Play** — Optional shortcut that starts the same exported client you would run from the install folder.  
-4. **Discord** — Not wired yet; the button is reserved for when the community link is ready.
+
 
 ## Releases and Installing
 
@@ -36,5 +36,5 @@ Prebuilt Windows binaries will be attached to **[Releases](https://github.com/Ka
 
 - **Launcher:** [Everquest-Godot-Launcher issues](https://github.com/KaelKodes/Everquest-Godot-Launcher/issues)  
 - **Server, database, hosting:** [Everquest-Godot-Server issues](https://github.com/KaelKodes/Everquest-Godot-Server/issues)
-- ** [Discord]** (https://discord.gg/dxvAvKg7FZ)
+- **Discord** [dxvAvKg7FZ](https://discord.gg/dxvAvKg7FZ)
 
