@@ -28,7 +28,7 @@ Open this folder as the project root in the Godot editor. Main scene: `LauncherM
 3. **Play** — Optional shortcut that starts the same exported client you would run from the install folder.  
 4. **Discord** — Not wired yet; the button is reserved for when the community link is ready.
 
-## Releases
+## Releases and Installing
 
 Prebuilt Windows binaries will be attached to **[Releases](https://github.com/KaelKodes/Everquest-Godot-Launcher/releases)** on this repository when they are ready. That is the recommended path for players who are not building from source.
 
