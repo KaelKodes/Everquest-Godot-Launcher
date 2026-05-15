@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b5s3p1q4x7y2a"]
 
 [ext_resource type="Script" uid="uid://bb8gs822bje4i" path="res://LauncherMain.cs" id="1_x8d2m"]
-[ext_resource type="Script" uid="uid://d8k2n5w7q1m4p" path="res://EqStyleDownloadBar.cs" id="2_eqbar"]
+[ext_resource type="Script" uid="uid://d56230x6trdx" path="res://EqStyleDownloadBar.cs" id="2_eqbar"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
 bg_color = Color(0.05, 0.05, 0.07, 1)
@@ -98,6 +98,19 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
 theme_override_font_sizes/font_size = 18
 text = "CLASSIC - GOTHIC - HORROR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" type="Label" parent="." unique_id=928533148]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 121.0
+offset_bottom = 151.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 18
+text = "Dev 0.0.4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -262,7 +275,6 @@ text = ">"
 flat = true
 
 [node name="DiscordBtn" type="Button" parent="." unique_id=1049604516]
-visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -329,11 +341,19 @@ offset_right = 550.0
 offset_bottom = 81.0
 text = "Browse..."
 
-[node name="ActionCombo" type="OptionButton" parent="ClientUI" unique_id=1170546971]
+[node name="ModeToggle" type="CheckButton" parent="ClientUI" unique_id=987654321]
 layout_mode = 1
 offset_left = 30.0
 offset_top = 90.0
-offset_right = 200.0
+offset_right = 160.0
+offset_bottom = 121.0
+text = "CLIENT"
+
+[node name="ActionCombo" type="OptionButton" parent="ClientUI" unique_id=1170546971]
+layout_mode = 1
+offset_left = 180.0
+offset_top = 90.0
+offset_right = 350.0
 offset_bottom = 121.0
 
 [node name="ActionBtn" type="Button" parent="ClientUI" unique_id=1982047938]
