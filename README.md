@@ -27,6 +27,23 @@ Open this folder as the project root in the Godot editor. Main scene: `LauncherM
 2. **News** — `blogs.json` is updated **with** releases so patch notes travel with the build, not from a separate live service.  
 3. **Play** — Optional shortcut that starts the same exported client you would run from the install folder.  
 
+## Install path and Administrator (Windows)
+
+During **Install** or **Update**, the launcher downloads **LanternExtractor** (EQ Lantern) into your chosen game folder (`<install path>\LanternExtractor\`). The client uses it to extract zones and assets from your EverQuest install at runtime.
+
+**Some install locations are not writable without elevated rights**, for example:
+
+- `C:\Program Files\` (or `Program Files (x86)`)
+- The root of `C:\` or other system-protected directories
+- Folders owned by another user or locked by policy
+
+If install fails with access denied or LanternExtractor errors, either:
+
+1. **Run EQ.gd Launcher as Administrator** (right-click the `.exe` → **Run as administrator**), or  
+2. **Pick a folder you own**, such as `C:\Games\EQ.gd`, `D:\Games\EQMUD`, or `Documents\EQ.gd` (no admin required).
+
+You do not need Administrator for a normal user-writable path. The in-app install bar shows the same reminder.
+
 
 ## Releases and Installing
 

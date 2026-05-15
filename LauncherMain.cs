@@ -75,6 +75,10 @@ public partial class LauncherMain : Control
 	private const string DotNet8DesktopInstallerUrl = "https://aka.ms/dotnet/8.0/windowsdesktop-runtime-win-x64.exe";
 	private const string DotNet6RuntimeInstallerUrl = "https://aka.ms/dotnet/6.0/dotnet-runtime-win-x64.exe";
 
+	private const string ProtectedInstallPathHint =
+		"Protected install paths (e.g. Program Files) may require running EQ.gd Launcher as Administrator so LanternExtractor can be installed. " +
+		"Or choose a folder you own (e.g. Documents\\EQ.gd).";
+
 	// Client: always pulls the latest GitHub release. Cutting a new release on
 	// KaelKodes/Everquest-Godot-Client is all it takes for the launcher to ship
 	// an update — no hardcoded tag or asset filename to keep in sync.
@@ -527,9 +531,88 @@ public partial class LauncherMain : Control
 		_clientProgress.Value = 100;
 		_clientProgress.EndWorkSuccess();
 		_clientStatus.Text = action == 0 ? "Server Installation Complete." : "Server Update Complete.";
+
+		// NEW: If this is an install, immediately try to set up the Akk-stack (Docker/Node)
+		if (action == 0)
+		{
+			_clientStatus.Text = "Installing Akk-stack (Docker/Redis/MariaDB)...";
+			await SetupServerInfrastructure(path);
+		}
 		
 		_clientActionBtn.Disabled = false;
 		_clientActionCombo.Disabled = false;
+	}
+
+	private async Task SetupServerInfrastructure(string path)
+	{
+		// 1. Ensure docker-compose.yml exists (write it if missing)
+		string composePath = System.IO.Path.Combine(path, "docker-compose.yml");
+		if (!System.IO.File.Exists(composePath))
+		{
+			string composeContent = @"services:
+  mariadb:
+    image: mariadb:10.11
+    container_name: akk-stack-mariadb-1
+    restart: unless-stopped
+    ports:
+      - ""3307:3306""
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: peq
+      MYSQL_USER: eqemu
+      MYSQL_PASSWORD: change_me
+    volumes:
+      - eqmud-db-data:/var/lib/mysql
+
+  redis:
+    image: redis:alpine
+    container_name: eqmud-redis
+    restart: unless-stopped
+    ports:
+      - ""6379:6379""
+
+volumes:
+  eqmud-db-data:";
+			System.IO.File.WriteAllText(composePath, composeContent);
+		}
+
+		// 2. Try to run 'docker compose up -d'
+		try {
+			_clientStatus.Text = "Starting Docker containers (Akk-stack)...";
+			var dockerPsi = new System.Diagnostics.ProcessStartInfo
+			{
+				FileName = "docker",
+				Arguments = "compose up -d",
+				WorkingDirectory = path,
+				CreateNoWindow = true,
+				UseShellExecute = false
+			};
+			var dockerProc = System.Diagnostics.Process.Start(dockerPsi);
+			await dockerProc.WaitForExitAsync();
+		} catch (Exception ex) {
+			GD.PrintErr("[Launcher] Failed to start Docker: " + ex.Message);
+			_clientStatus.Text = "Docker start failed. Is Docker Desktop installed?";
+		}
+
+		// 3. Try to run 'npm install'
+		try {
+			_clientStatus.Text = "Installing Node.js dependencies...";
+			var npmPsi = new System.Diagnostics.ProcessStartInfo
+			{
+				FileName = "npm.cmd", // Windows specific
+				Arguments = "install",
+				WorkingDirectory = path,
+				CreateNoWindow = true,
+				UseShellExecute = false
+			};
+			var npmProc = System.Diagnostics.Process.Start(npmPsi);
+			await npmProc.WaitForExitAsync();
+		} catch (Exception ex) {
+			GD.PrintErr("[Launcher] Failed to run npm install: " + ex.Message);
+			_clientStatus.Text = "npm install failed. Is Node.js installed?";
+		}
+
+		_clientStatus.Text = "Server & Infrastructure Ready!";
 	}
 
 	private void SetClientProgressDeferred(int value) =>
@@ -837,7 +920,9 @@ public partial class LauncherMain : Control
 		catch (Exception ex)
 		{
 			GD.PrintErr("[Launcher] LanternExtractor install failed: " + ex.Message);
-			_clientStatus.Text = "LanternExtractor download/extract failed.";
+			_clientStatus.Text = IsAccessDeniedError(ex)
+				? "LanternExtractor install failed: no write access. " + ProtectedInstallPathHint
+				: "LanternExtractor download/extract failed.";
 			return false;
 		}
 		finally
@@ -1144,7 +1229,9 @@ public partial class LauncherMain : Control
 		catch (Exception ex)
 		{
 			GD.PrintErr("[Launcher] Client install failed: " + ex.Message);
-			_clientStatus.Text = "Client install failed.";
+			_clientStatus.Text = IsAccessDeniedError(ex)
+				? "Client install failed: no write access. " + ProtectedInstallPathHint
+				: "Client install failed.";
 			return false;
 		}
 		finally
@@ -1475,6 +1562,18 @@ public partial class LauncherMain : Control
 		}
 
 		GD.Print($"[Launcher] Download done: {downloaded} bytes -> {destFile}");
+	}
+
+	private static bool IsAccessDeniedError(Exception ex)
+	{
+		for (Exception e = ex; e != null; e = e.InnerException)
+		{
+			if (e is UnauthorizedAccessException)
+				return true;
+			if (e is System.IO.IOException && e.Message.Contains("access", StringComparison.OrdinalIgnoreCase))
+				return true;
+		}
+		return false;
 	}
 
 	private static void CopyDirectory(string sourceDir, string destDir)

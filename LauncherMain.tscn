@@ -294,7 +294,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -140.0
+offset_top = -168.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_bottom_bar")
@@ -341,20 +341,31 @@ offset_right = 550.0
 offset_bottom = 81.0
 text = "Browse..."
 
+[node name="AdminNote" type="Label" parent="ClientUI" unique_id=2847193056]
+layout_mode = 1
+offset_left = 30.0
+offset_top = 84.0
+offset_right = 920.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0.62, 0.58, 0.48, 1)
+theme_override_font_sizes/font_size = 11
+text = "Protected paths (e.g. Program Files) may require running EQ.gd Launcher as Administrator so LanternExtractor can be installed."
+autowrap_mode = 3
+
 [node name="ModeToggle" type="CheckButton" parent="ClientUI" unique_id=987654321]
 layout_mode = 1
 offset_left = 30.0
-offset_top = 90.0
+offset_top = 112.0
 offset_right = 160.0
-offset_bottom = 121.0
+offset_bottom = 143.0
 text = "CLIENT"
 
 [node name="ActionCombo" type="OptionButton" parent="ClientUI" unique_id=1170546971]
 layout_mode = 1
 offset_left = 180.0
-offset_top = 90.0
+offset_top = 112.0
 offset_right = 350.0
-offset_bottom = 121.0
+offset_bottom = 143.0
 
 [node name="ActionBtn" type="Button" parent="ClientUI" unique_id=1982047938]
 layout_mode = 1
