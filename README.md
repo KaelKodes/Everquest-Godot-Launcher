@@ -1,4 +1,6 @@
 # EverQuest.Godot Launcher (EQ.gd)
+<img width="1161" height="664" alt="image" src="https://github.com/user-attachments/assets/eddc7304-1bd4-4a85-baa5-6a3665846417" />
+
 
 This repository is the **public entry point** for **EQ.gd**—the place players and contributors should land first. It contains the **desktop launcher**: a Godot 4.6 + C# app that will keep the game install updated, show release notes and news, and offer a convenient **Play** shortcut to the same client you could start manually.
 
@@ -24,17 +26,17 @@ Open this folder as the project root in the Godot editor. Main scene: `LauncherM
 1. **Install / Update** — Sync the game files to the chosen install directory (implementation: real `git` or packaged updates; UI exists, plumbing still to be completed).  
 2. **News** — `blogs.json` is updated **with** releases so patch notes travel with the build, not from a separate live service.  
 3. **Play** — Optional shortcut that starts the same exported client you would run from the install folder.  
-4. **Discord** — Not wired yet; the button is reserved for when the community link is ready.
 
-## Releases
+
+## Releases and Installing
 
 Prebuilt Windows binaries will be attached to **[Releases](https://github.com/KaelKodes/Everquest-Godot-Launcher/releases)** on this repository when they are ready. That is the recommended path for players who are not building from source.
 
 ## Contributing
 
-- **Launcher:** [Everquest-Godot-Launcher issues](https://github.com/KaelKodes/Everquest-Godot-Launcher/issues)  
-- **Server, database, hosting:** [Everquest-Godot-Server issues](https://github.com/KaelKodes/Everquest-Godot-Server/issues)
+- **Launcher:** [EverQuest godot LAUNCHER issues](https://github.com/KaelKodes/Everquest-Godot-Launcher/issues)  
+- **Server, database, and hosting issues:** [EverQuest godot SERVER Issues](https://github.com/KaelKodes/Everquest-Godot-Server/issues)
+- **Client Issues:** [EverQuest godot CLIENT issues](https://github.com/KaelKodes/Everquest-Godot-Client/issues)
+- **Dev Blog:** [EQ.gd Announcements](https://github.com/KaelKodes/Everquest-Godot-Launcher/discussions/categories/announcements)
+- **Discord** [dxvAvKg7FZ](https://discord.gg/dxvAvKg7FZ)
 
-## License
-
-Add a `LICENSE` file when you have chosen terms for the launcher; until then, assume **all rights reserved** unless you state otherwise in the repository settings.
